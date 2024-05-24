@@ -8,6 +8,7 @@ module.exports = {
     about: './src/about/index.ts',
     home: './src/index.ts',
     developer: './src/developer/index.ts',
+    contact: './src/contact/index.ts',
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -31,6 +32,11 @@ module.exports = {
       filename: 'developer.html',
       chunks: ['developer'],
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'contact.html'),
+      filename: 'contact.html',
+      chunks: ['contact'],
+    }),
     new FileManagerPlugin({
       events: {
         onStart: {
@@ -43,6 +49,8 @@ module.exports = {
         if (chunk.name === 'about') {
           return `${chunk.name}/[name].css`;
         } else if (chunk.name === 'developer') {
+          return `${chunk.name}/[name].css`;
+        } else if (chunk.name === 'contact') {
           return `${chunk.name}/[name].css`;
         } else {
           return `[name].css`;

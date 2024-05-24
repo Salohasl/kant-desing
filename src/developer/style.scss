@@ -17,6 +17,13 @@
       animation: animUp 1s linear;
     }
   }
+  h3, p{
+    opacity: 0;
+    &.anim{
+      opacity: 1;
+      animation: animUp 1s linear;
+    }
+  }
   @keyframes animUp {
     0% { /* Старт анимации */
       opacity: 0;
@@ -27,6 +34,7 @@
       transform: none;
     }
   }
+  
   @font-face {
     font-family: 'Involve';
     src: url('../fonts/Involve-VF.ttf') format('truetype');
@@ -78,7 +86,7 @@
     }
     button{
       background-color: #000000;
-      color: white;
+      color: #FAFF00;
       border: 2px solid #FAFF00;
       padding: 15px 30px;
       cursor: pointer;
@@ -94,8 +102,121 @@
     }
   }
 
+main{
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button{
+    margin-top: 40px;
+    font-size: calc((100vw - 480px) / 800* 8 + 10px);
+    background-color: #000000;
+    border: 1px solid white;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    transition: .5s;
+    &:hover{
+      border-color: #FAFF00;
+      color: #FAFF00;
+    }
+    &:active{
+      background-color: #FAFF00;
+      border-color: #FAFF00;
+      color: #000000;
+    }
+  }
+}
 
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: -250px;
+  hr{
+    height: 1000px;
+    margin-top: 300px;
+  }
+}
 
+.wrapper-block__left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  h2{
+    opacity: 0;
+    &.anim{
+      opacity: 1;
+      animation: animLeft 1s linear;
+    }
+  }
+}
+@keyframes animLeft {
+  0% { /* Старт анимации */
+    opacity: 0;
+    transform: translate3d(20%, 0%, 0px);
+  }
+  100% { /* в финале анимации - финал это заданная 0.55s */
+    opacity: 1;
+    transform: none;
+  }
+}
+.wrapper-item{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  border-bottom: 1px solid white;
+  column-gap: 40px;
+  height: 250px;
+  padding-bottom: 30px;
+  p{
+    width: 350px;
+    font-size: calc((100vw - 480px) / 800* 8 + 8px);
+    margin-top: 15px;
+  }
+  h3{
+    color: #FAFF00;
+    font-size: calc((100vw - 480px) / 800* 8 + 15px);
+  }
+  h2{
+    font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 185px);
+    width: 140px;
+    height: 180px;
+    color: #000000; /* Цвет текста */
+    background-color: transparent; /* Фон элемента прозрачный */
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; /* Контур вокруг текста */
+    text-align: right;
+    font-weight: 300 !important;
+    margin-right: 40px;
+  }
+}
+.wrapper-block__right{
+  margin-top: 250px;
+  .wrapper-item{
+    flex-direction: row-reverse;
+  }
+  h2{
+    opacity: 0;
+    &.anim{
+      opacity: 1;
+      animation: animRight 1s linear;
+    }
+  }
+}
+@keyframes animRight {
+  0% { /* Старт анимации */
+    opacity: 0;
+    transform: translate3d(-20%, 0%, 0px);
+  }
+  100% { /* в финале анимации - финал это заданная 0.55s */
+    opacity: 1;
+    transform: none;
+  }
+}
   footer{
     display: flex;
     flex-direction: row;
@@ -103,6 +224,7 @@
     justify-content: space-between;
     margin-top: 50px;
     padding: 20px 60px 20px 0px;
+    margin-top: 80px;
     nav{
       display: flex;
       flex-direction: row;
